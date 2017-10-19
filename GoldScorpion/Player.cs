@@ -17,6 +17,7 @@ namespace GoldScorpion
         public List<Card> hand;
         public List<Card> cards_avail;
         public Stack<Card> pile; 
+        public int points;
         
 
         public Player()
@@ -25,6 +26,7 @@ namespace GoldScorpion
             cards_avail.AddRange(Enumerable.Repeat(new Card(1),3));
             Hand();
             pile = new Stack<Card>();
+            points=0;
         }
 
         public void Hand()
@@ -34,8 +36,8 @@ namespace GoldScorpion
 
         public void playCard(int num)
         {
-
-            
+            pile.Push(hand[num]);
+            hand.RemoveAt(num);
         }
     }
 }
