@@ -7,7 +7,7 @@ namespace GoldScorpion
     class Game
     {
         public List<Player> players;
-        public string winner;
+        public Player winner;
         public string first;
         private Player firstPlayer;
 
@@ -25,12 +25,12 @@ namespace GoldScorpion
                 winner = current.winner;
                 firstPlayer = current.next; 
             }
-            System.Console.WriteLine("The Winner is: {0}", winner);
+            System.Console.WriteLine("The Winner is: {0}", winner.name);
         }
     }
     class Round
     {
-        public string winner = null;
+        public Player winner = null;
         public Player next;
         Dictionary<int, Player> bids = new Dictionary<int, Player>();
         List<Player> currentPlayers;
@@ -44,6 +44,14 @@ namespace GoldScorpion
                 player.pile = null;
             }
             next = firstPlayer;
+            play();
+            foreach(Player playah in players)
+            {
+                if(playah.points > 1)
+                {
+                    winner = playah;
+                }
+            }
         }
         private void GetBids()
         {
@@ -84,6 +92,34 @@ namespace GoldScorpion
                 {
                     System.Console.WriteLine("You have {0} flips left", flipsLeft);
                     totalFlipped = maxBid - flipsLeft;
+                }
+            }
+        }
+        
+        public void play(){
+            foreach(Player player in currentPlayers)
+            {
+                System.Console.WriteLine($"What would you like to do, {player.name}?");
+                if(bids.Count == 0)
+                {
+                    System.Console.WriteLine("Would you like to (1) play a card or (2) start the bidding?");
+                    Int32.TryParse(Console.ReadLine(), out int move);
+                    if(move == 1)
+                    {
+                        System.Console.WriteLine("Which card would you like to play?");
+                        for(int i=0;i<player.hand.Count;i++)
+                        {
+                            System.Console.WriteLine("{0}) {1}",i, player.hand[i].cardName);
+                        }
+                        Int32.TryParse(Console.ReadLine(), out int cardnum);
+                        player.playCard(cardnum);
+                    }
+                    else if(move == 2)
+                    {
+                        GetBids();
+                        flipCards(bids.Keys.Max());
+                        break;
+                    }
                 }
             }
         }
