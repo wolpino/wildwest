@@ -1,20 +1,41 @@
 using System;
-
 using System.Collections.Generic;
-using System.Collections;
+using System.Linq;
 
 namespace GoldScorpion
 {
+    class Card
+    {
+        public static string[] cardType = {"scorpion", "gold"};
+        public string cardName;
+        public Card(int val){
+            cardName = cardType[val];
+        } 
+    }
     class Player
     {
-        public List<string> hand;
-        public List<string> cards_avail;
-        public Stack() pile;
+        public List<Card> hand;
+        public List<Card> cards_avail;
+        public Stack<Card> pile; 
         
 
-        static void Main(string[] args)
+        public Player()
         {
-            Console.WriteLine("Who's playing!");
+            cards_avail.Add(new Card(0));
+            cards_avail.AddRange(Enumerable.Repeat(new Card(1),3));
+            Hand();
+            pile = new Stack<Card>();
+        }
+
+        public void Hand()
+        {
+            hand = new List<Card>(cards_avail);
+        }
+
+        public void playCard(int num)
+        {
+
+            
         }
     }
 }
