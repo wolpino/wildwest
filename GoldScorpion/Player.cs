@@ -19,15 +19,17 @@ namespace GoldScorpion
         public List<Card> cards_avail;
         public Stack<Card> pile; 
         public int points;
+        public string name; 
         
 
-        public Player()
+        public Player(string playerName)
         {
             cards_avail.Add(new Card(0));
             cards_avail.AddRange(Enumerable.Repeat(new Card(1),3));
             Hand();
             pile = new Stack<Card>();
             points=0;
+            name = playerName;
         }
 
         public void Hand()
