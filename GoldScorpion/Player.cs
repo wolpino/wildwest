@@ -41,8 +41,9 @@ namespace GoldScorpion
             hand.RemoveAt(num);
         }
 
-        public string flip(int num)
+        public int flip(int num)
         // flips cards. For each card indicated in the bid, if the card is within the pile count, we check the value. If the value is scorpion, the bid is over, player loses. If our count to flip ends within our pile with no scorpions, the player wins.  Otherwise, if we run out of cards, we move to the next deck. 
+        // -1 = Lose; 0 = Win; # = Recall flip for another player using this number
         {
             for(int i=0;i<num;i++)
             {
@@ -50,19 +51,19 @@ namespace GoldScorpion
                 {
                     if(pile.Pop().cardName == "scorpion")
                     {
-                        return "Sorry! You lose!";
+                        return -1;
                     }
                     else if (i==num-1)
                     {
-                        return "Yay! You win this round";
+                        return 0;
                     }
                 }
                 else 
                 {
-                    return "Continue with someone else's pile...";
+                    return num-i;
                 }
             }
-            return "Yay! You win this round";
+            return 0;
         }
 
 
