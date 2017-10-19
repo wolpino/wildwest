@@ -14,6 +14,7 @@ namespace GoldScorpion
     }
     class Player
     {
+        public static Random rand = new Random();
         public List<Card> hand;
         public List<Card> cards_avail;
         public Stack<Card> pile; 
@@ -64,6 +65,11 @@ namespace GoldScorpion
                 }
             }
             return 0;
+        }
+
+        public void Discard()
+        {
+            cards_avail.RemoveAt(rand.Next(cards_avail.Count));
         }
 
 
