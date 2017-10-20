@@ -12,6 +12,7 @@ namespace GoldScorpion
             cardName = cardType[val];
         } 
     }
+    
     class Player
     {
         public static Random rand = new Random();
@@ -77,5 +78,30 @@ namespace GoldScorpion
         }
 
 
+    }
+
+    class CompOpponent:Player
+    {
+        public CompOpponent(string name):base(name)
+        {}
+
+        public int makeMove()
+        {
+            if(hand.Count>0)
+            {
+                if(rand.Next(2)==0)
+                {
+                    playCard();
+                    return 0;
+                }
+            }
+            return 1;
+        }
+
+        public void playCard()
+        {
+            int num = rand.Next(hand.Count);
+            playCard(num);
+        }
     }
 }
