@@ -40,7 +40,8 @@ namespace GoldScorpion
         public void playCard(int num)
         // player adds a card from their hand to the pile
         {
-            pile.Push(hand[num]);
+            Card card = hand[num];
+            pile.Push(card);
             hand.RemoveAt(num);
         }
 
@@ -52,7 +53,8 @@ namespace GoldScorpion
             {
                 if(i<pile.Count)
                 {
-                    if(pile.Pop().cardName == "scorpion")
+                    string currCard = pile.Pop().cardName;
+                    if(currCard == "scorpion")
                     {
                         return -1;
                     }

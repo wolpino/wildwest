@@ -6,9 +6,8 @@ namespace GoldScorpion
 {
     class Game
     {
-        public List<Player> players;
+        public List<Player> players = new List<Player>();
         public Player winner;
-        public string first;
         private Player firstPlayer;
 
         public Game(int playerNumber)
@@ -41,10 +40,13 @@ namespace GoldScorpion
             foreach (Player player in players)
             {
                 player.Hand();
-                player.pile = null;
+                player.pile.Clear();
             }
             next = firstPlayer;
-            play();
+            while(bids.Count<1)
+            {
+                play();
+            }
             foreach(Player playah in players)
             {
                 if(playah.points > 1)
@@ -57,10 +59,18 @@ namespace GoldScorpion
         {
             foreach (Player player in currentPlayers)
             {
-                System.Console.WriteLine("How many rocks can you flip without finding a scorpion?");
-                System.Console.WriteLine("The highest bid so far is: {0} by {1}", bids.Keys.Max(), bids[bids.Keys.Max()]);
-                Int32.TryParse(Console.ReadLine(), out int attemptedBid);
-                bids.Add(attemptedBid, player);
+                System.Console.WriteLine($"Would you like to bid or pass, {player.name}?");
+                string bidorpass = Console.ReadLine();
+                if(bidorpass == "bid" || bidorpass == "Bid")
+                {
+                    System.Console.WriteLine("How many rocks can you flip without finding a scorpion?");
+                    if(bids.Count>0)
+                    {
+                        System.Console.WriteLine("The highest bid so far is: {0} by {1}", bids.Keys.Max(), bids[bids.Keys.Max()].name);
+                    }
+                    Int32.TryParse(Console.ReadLine(), out int attemptedBid);
+                    bids.Add(attemptedBid, player);
+                }
             }
         }
         private void flipCards(int maxBid)
@@ -69,13 +79,13 @@ namespace GoldScorpion
             int totalFlipped = 0;
             while (totalFlipped <  maxBid)
             {
-                System.Console.WriteLine("Choose a player whose cards you'll flip next");
+                System.Console.WriteLine($"Choose a player whose cards you'll flip next, {bids[bids.Keys.Max()].name}");
                 for (int i = 0; i < currentPlayers.Count; i++)
                 {
                     System.Console.WriteLine("{0}. {1}, cards in pile: {2}", i,  currentPlayers[i].name, currentPlayers[i].pile.Count);
                 }
                 Int32.TryParse(Console.ReadLine(), out int chosenPlayer);
-                flipsLeft = currentPlayers[chosenPlayer].flip(maxBid);
+                flipsLeft = currentPlayers[chosenPlayer].flip(flipsLeft);
                 if (flipsLeft == -1)
                 {
                     System.Console.WriteLine("A Scorpion!");
@@ -100,9 +110,10 @@ namespace GoldScorpion
             foreach(Player player in currentPlayers)
             {
                 System.Console.WriteLine($"What would you like to do, {player.name}?");
-                if(bids.Count == 0)
+                if(bids.Count == 0 && player.hand.Count>0)
                 {
                     System.Console.WriteLine("Would you like to (1) play a card or (2) start the bidding?");
+                    // int move = 1;
                     Int32.TryParse(Console.ReadLine(), out int move);
                     if(move == 1)
                     {
@@ -111,7 +122,12 @@ namespace GoldScorpion
                         {
                             System.Console.WriteLine("{0}) {1}",i, player.hand[i].cardName);
                         }
+                        // int cardnum = 1;
                         Int32.TryParse(Console.ReadLine(), out int cardnum);
+                        if(cardnum>player.hand.Count-1){
+                            System.Console.WriteLine($"Invalid Card. Try again with a number from 0 to {player.hand.Count-1}");
+                            Int32.TryParse(Console.ReadLine(), out cardnum);
+                        }
                         player.playCard(cardnum);
                     }
                     else if(move == 2)
@@ -120,6 +136,12 @@ namespace GoldScorpion
                         flipCards(bids.Keys.Max());
                         break;
                     }
+                }
+                else 
+                {
+                    GetBids();
+                    flipCards(bids.Keys.Max());
+                    break;
                 }
             }
         }
