@@ -4,11 +4,11 @@ using System.Linq;
 
 namespace GoldScorpion
 {
-    class Game
+    public class Game
     {
         public List<Player> players = new List<Player>();
         public Player winner;
-        private Player firstPlayer;
+        public Player firstPlayer;
 
         public Game(int playerNumber)
         {
@@ -27,7 +27,7 @@ namespace GoldScorpion
             System.Console.WriteLine("The Winner is: {0}", winner.name);
         }
     }
-    class Round
+    public class Round
     {
         public Player winner = null;
         public Player next;
