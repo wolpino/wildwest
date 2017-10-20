@@ -85,6 +85,11 @@ namespace GoldScorpion
                     System.Console.WriteLine("{0}. {1}, cards in pile: {2}", i,  currentPlayers[i].name, currentPlayers[i].pile.Count);
                 }
                 Int32.TryParse(Console.ReadLine(), out int chosenPlayer);
+                while (chosenPlayer>currentPlayers.Count || chosenPlayer<0)
+                {
+                    System.Console.WriteLine($"Invalid player. Please choose a number from 0 to {currentPlayers.Count-1}");
+                    Int32.TryParse(Console.ReadLine(), out chosenPlayer);
+                }
                 flipsLeft = currentPlayers[chosenPlayer].flip(flipsLeft);
                 if (flipsLeft == -1)
                 {

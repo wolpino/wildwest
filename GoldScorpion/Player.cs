@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace GoldScorpion
 {
-    class Card
+    public class Card
     {
         public static string[] cardType = {"scorpion", "gold"};
         public string cardName;
@@ -12,7 +12,7 @@ namespace GoldScorpion
             cardName = cardType[val];
         } 
     }
-    class Player
+    public class Player
     {
         public static Random rand = new Random();
         public List<Card> hand;
@@ -51,7 +51,7 @@ namespace GoldScorpion
         {
             for(int i=0;i<num;i++)
             {
-                if(i<pile.Count)
+                while(pile.Count>0)
                 {
                     string currCard = pile.Pop().cardName;
                     if(currCard == "scorpion")
@@ -62,10 +62,11 @@ namespace GoldScorpion
                     {
                         return 0;
                     }
+                    i++;
                 }
-                else 
+                if(i>=pile.Count)
                 {
-                    return num-i;
+                    return (num-i);
                 }
             }
             return 0;
