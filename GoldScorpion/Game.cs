@@ -12,12 +12,64 @@ namespace GoldScorpion
 
         public Game(int playerNumber)
         {
-            firstPlayer = new Player("You");
+            firstPlayer = new Player("Partner");
             players.Add(firstPlayer);
             for (int i = 0; i < playerNumber; i++)
             {
                 players.Add(new CompOpponent($"cpu{i}"));
             }
+            System.Console.WriteLine(@"
+
+
+   ___    ___    _      ___    ___    ___    ___    ___     ___   ___    ___   _  _   
+  / __|  / _ \  | |    |   \  / __|  / __|  / _ \  | _ \   | _ \ |_ _|  / _ \ | \| |  
+ | (_ | | (_) | | |__  | |) | \__ \ | (__  | (_) | |   /   |  _/  | |  | (_) || .` |  
+  \___|  \___/  |____| |___/  |___/  \___|  \___/  |_|_\  _|_|_  |___|  \___/ |_|\_|  
+_|'''''_|'''''_|'''''_|'''''_|'''''_|'''''_|'''''_|'''''_|''''' _|'''''_|'''''_|''''' 
+'`-0-0-'`-0-0-'`-0-0-'`-0-0-'`-0-0-'`-0-0-'`-0-0-'`-0-0-'`-0-0-'`-0-0-'`-0-0-'`-0-0-' 
+
+                /||\                                         /||\                              
+                ||||                                         ||||                                      
+         _______||||______                                ___||||______                              
+       _/       |||| /|\  \_                     ________/   |||| /|\  \_           
+     _/    /|\  |||| |||    \_                 _/      //|\  |||| |||    \_      
+ ---/      |||  |||| |||      \_             _/         |||  |||| |||      \_    
+           |||  |||| |||        \________ __/           |||  |||| |||        \______________  
+           |||  |||| d||                      ____      |||  |||| d||          
+           |||  |||||||/                     /    \      |||  |||||||/          
+           ||b._||||~~'             ________/      \     ||b._||||~~'          
+           \||||||||               /                \   \||||||||              
+            `~~~||||            __/                  \   `~~~||||              
+                ||||        __/                       \___   ||||              
+                ||||       /                               \ ||||              
+~~~~~~~~~~~~~~~~||||~~~~~~~~~~~~~~  __ ~~ __  ~~~~~~~~~~~~~~~~||||~~~~~~~~~~~~~~
+  \/..__..--  . |||| \/  .  ..     (_<    >_)  \/..__ --  . |||| \/  .  ..    
+\/         \/ \/    \/            //        \\  \/         \/ \/    \/            
+        .  \/              \/    .\\___..___//        .  \/              \/    
+. \/ ((__))                 .      `-(    )-'. \/            .    (( ))    .      
+   __( O O)      ._      .     \/    _|__|_                   \/  (o o)
+\/  . `\_\\  .      \/    __..--..  /_|__|_\ .   .    \/     \/    \_/ 
+                                    /_|__|_\            
+     Welcome to the Wild Wild West  /_\__/_\            Go ahead and take your chances
+  We're gonna go huntin' for gold    \ || /   _)        see how many rocks you can flip
+    in these parts. But you better     ||    ( )        before you get bit!
+      watch out for those scorp's!      \\___//  
+       They have a meeeean bite!         `---'
+                                            Max
+\\--//    .          _
+      _ `---'    .)=\oo|=(.   _   .   .    .
+ _  ^      .  -    . \.|
+
+
+");
+            System.Console.WriteLine("Would you like to play? Y/N?");
+            string start = Console.ReadLine();
+            if(start == "n" || start == "N")
+            {
+                 System.Console.WriteLine("Well too bad");
+            }   
+            else if (start == "y" || start == "Y");
+            {
             while (winner == null)
             {
                 Round current = new Round(players, firstPlayer);
@@ -73,11 +125,11 @@ namespace GoldScorpion
                 }
                 else
                 {
-                    System.Console.WriteLine($"Would you like to bid or pass, {player.name}?");
+                    System.Console.WriteLine($"How lucky are you feelin' about this gold, {player.name}? Let me know if you'd rather bid or pass.");
                     string bidorpass = Console.ReadLine();
                     if(bidorpass == "bid" || bidorpass == "Bid")
                     {
-                        System.Console.WriteLine("How many rocks can you flip without finding a scorpion?");
+                        System.Console.WriteLine("Good choice bucko, how many of these here rocks can you flip without finding a scorpion?");
                         if(bids.Count>0)
                         {
                             System.Console.WriteLine("The highest bid so far is: {0} by {1}", bids.Keys.Max(), bids[bids.Keys.Max()].name);
@@ -95,7 +147,7 @@ namespace GoldScorpion
             bids[bids.Keys.Max()].flip(flipsLeft);
             while (totalFlipped <  maxBid)
             {
-                System.Console.WriteLine($"Choose a player whose cards you'll flip next, {bids[bids.Keys.Max()].name}");
+                System.Console.WriteLine($"Now whose rocks do you want to flip next?, {bids[bids.Keys.Max()].name}");
                 List<Player> temp = currentPlayers.Where(plyr => plyr != bids[bids.Keys.Max()]).ToList();
                 for (int i = 0; i < temp.Count; i++)
                 {
@@ -112,7 +164,24 @@ namespace GoldScorpion
 
                 if (flipsLeft == -1)
                 {
-                    System.Console.WriteLine("A Scorpion!");
+                    System.Console.WriteLine(@"
+                     ___    ___
+                    ( _<    >_ )
+                    //        \\
+                    \\___..___//
+                    `-(    )-'
+                      _|__|_
+                     /_|__|_\
+                     /_|__|_\
+                     /_\__/_\
+                      \ || /   _)
+                        ||    ( )
+                    Max  \\___//
+                         `---'
+                                        
+                    
+                    A Scorpion!");
+                    System.Console.WriteLine();
                     bids[maxBid].Discard();
                     break;
                 }
@@ -192,4 +261,5 @@ namespace GoldScorpion
             }
         }
     }
+}
 }

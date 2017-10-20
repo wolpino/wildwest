@@ -14,7 +14,7 @@ namespace GoldScorpion
             {
                 if(hand.cardName != "scorpion" && hand.cardName != "gold")
                 {
-                    throw new InvalidOperationException();
+                    throw new InvalidOperationException("Deck has been infiltrated with bad cards");
                 }
             }
                 
@@ -26,7 +26,7 @@ namespace GoldScorpion
             int handcount = player.cards_avail.Count;
             if(handcount != 4)
             {
-                throw new InvalidOperationException();
+                throw new InvalidOperationException("New hand is sized wrong.");
             }
           
         }
@@ -39,7 +39,7 @@ namespace GoldScorpion
             int count2 = player.hand.Count;
             if(count != (count2+1))
                 {
-                    throw new InvalidOperationException();
+                    throw new InvalidOperationException("Playcard not removing card from hand");
                 }
         }
         [Fact]
@@ -51,22 +51,23 @@ namespace GoldScorpion
             int count2 = player.pile.Count;
             if(count != (count2-1))
                 {
-                    throw new InvalidOperationException();
+                    throw new InvalidOperationException("Play card didn't add card to pile");
                 }
         }
                 
     }
-    public class GameTesting
+   public class GameTesting
     {
         [Theory]
+        [InlineData('Y')]        
         [InlineData(1)]
+        [InlineData(1)]
+        [InlineData()]
+        [InlineData(2)]
         public void new_round_hand_reset_to_cardsavail()
         {
             Player player = new Player("test");
             Game game = new Game(2);
-            System.Console.WriteLine("1");
-            player.playCard(2);
-            player.playCard(1);
             var handCount = player.hand;
             var avail = player.cards_avail;            
             Round round = new Round(game.players, game.firstPlayer);
@@ -76,6 +77,39 @@ namespace GoldScorpion
                 }
 
         }
+
+        [Theory]
+        [InlineData('Y')]        
+        [InlineData(1)]
+        [InlineData(1)]
+        [InlineData()]
+        [InlineData(2)]
+         public void new_round_pile_set_to_0()
+        {
+            Player player = new Player("test");
+            Game game = new Game(2);
+            Round round = new Round(game.players, game.firstPlayer);
+            var pileCount = player.pile.Count;            
+            if(pileCount != 0)
+                {
+                    throw new InvalidOperationException("Pile did not reset to 0!");
+                }
+
+        }
+        public void when_no_cardsavail_player_removed_from_turn()
+        {
+            Player player = new Player("test");
+            Game game = new Game(2);
+            player.cards_avail.Clear();
+            Round.currentPlayers = players;
+            foreach (Player player in players)        
+            if(player.playerName == "player")
+                {
+                    throw new InvalidOperationException("Player has no cards_avail and wasn't removed from currentPlayers");
+                }
+
+        }
+        
     }           
 
             
@@ -84,11 +118,6 @@ namespace GoldScorpion
         // {
         //     // play card doesn't work after first bid
 
-        //     // at start of round, hand gets reset to cards available
-
-        //     //at start of round pile gets set to 0
-
-        //     //if cards available == 0, player 
 
         //     //if player has 2 points player wins
             
