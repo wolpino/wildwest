@@ -16,7 +16,7 @@ namespace GoldScorpion
     {
         public static Random rand = new Random();
         public List<Card> hand;
-        public List<Card> cards_avail;
+        public List<Card> cards_avail = new List<Card>();
         public Stack<Card> pile; 
         public int points;
         public string name; 
@@ -40,7 +40,8 @@ namespace GoldScorpion
         public void playCard(int num)
         // player adds a card from their hand to the pile
         {
-            pile.Push(hand[num]);
+            Card card = hand[num];
+            pile.Push(card);
             hand.RemoveAt(num);
         }
 
