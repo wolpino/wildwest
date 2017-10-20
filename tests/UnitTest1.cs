@@ -3,12 +3,11 @@ using Xunit;
 
 namespace GoldScorpion
 {
-    public class UnitTest1
+    public class CardAndPlayerTesting
     {
         [Fact]
-        public void Test1()
+        public void player_starts_with_correct_hand()
         {
-            // Player starts with correct hand
             Player player = new Player("test");
             var testhand = player.cards_avail;
             foreach(Card hand in testhand)
@@ -21,9 +20,8 @@ namespace GoldScorpion
                 
         }
         [Fact]
-        public void Test2()
+        public void new_hand_has_4_cards()
         {
-            //new hand has 4 cards
             Player player = new Player("test");
             int handcount = player.cards_avail.Count;
             if(handcount != 4)
@@ -32,25 +30,54 @@ namespace GoldScorpion
             }
           
         }
-         [Fact]
-         public void Test3()
+        [Fact]
+         public void play_card_removes_card_from_hand()
         {
-            //play card removes a card from the hand
             Player player = new Player("test");
-            int count = player.cards_avail.Count;
+            int count = player.hand.Count;
             player.playCard(2);
-            int count2 = player.cards_avail.Count;
+            int count2 = player.hand.Count;
             if(count != (count2+1))
                 {
                     throw new InvalidOperationException();
                 }
         }
+        [Fact]
+         public void play_card_adds_card_to_pile()
+        {
+            Player player = new Player("test");
+            int count = player.pile.Count;
+            player.playCard(2);
+            int count2 = player.pile.Count;
+            if(count != (count2-1))
+                {
+                    throw new InvalidOperationException();
+                }
+        }
                 
+    }
+    public class GameTesting
+    {
+        [Theory]
+        [InlineData(1)]
+        public void new_round_hand_reset_to_cardsavail()
+        {
+            Player player = new Player("test");
+            Game game = new Game(2);
+            System.Console.WriteLine("1");
+            player.playCard(2);
+            player.playCard(1);
+            var handCount = player.hand;
+            var avail = player.cards_avail;            
+            Round round = new Round(game.players, game.firstPlayer);
+            if(handCount != avail)
+                {
+                    throw new InvalidOperationException("Hand didnt reset!");
+                }
+
+        }
     }           
 
-            //play card removes a card from the hand
-
-            //play card adds a card to the pile
             
 }
         // public void Test2()
