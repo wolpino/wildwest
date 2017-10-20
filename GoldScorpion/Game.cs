@@ -79,7 +79,7 @@ namespace GoldScorpion
             int totalFlipped = 0;
             while (totalFlipped <  maxBid)
             {
-                System.Console.WriteLine($"Choose a player whose cards you'll flip next, {bids[bids.Keys.Max()]}");
+                System.Console.WriteLine($"Choose a player whose cards you'll flip next, {bids[bids.Keys.Max()].name}");
                 for (int i = 0; i < currentPlayers.Count; i++)
                 {
                     System.Console.WriteLine("{0}. {1}, cards in pile: {2}", i,  currentPlayers[i].name, currentPlayers[i].pile.Count);
@@ -136,6 +136,12 @@ namespace GoldScorpion
                         flipCards(bids.Keys.Max());
                         break;
                     }
+                }
+                else 
+                {
+                    GetBids();
+                    flipCards(bids.Keys.Max());
+                    break;
                 }
             }
         }

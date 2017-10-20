@@ -53,7 +53,8 @@ namespace GoldScorpion
             {
                 if(i<pile.Count)
                 {
-                    if(pile.Pop().cardName == "scorpion")
+                    string currCard = pile.Pop().cardName;
+                    if(currCard == "scorpion")
                     {
                         return -1;
                     }
