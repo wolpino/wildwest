@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace GoldScorpion
 {
-    class Card
+    public class Card
     {
         public static string[] cardType = {"scorpion", "gold"};
         public string cardName;
@@ -12,11 +12,11 @@ namespace GoldScorpion
             cardName = cardType[val];
         } 
     }
-    class Player
+    public class Player
     {
         public static Random rand = new Random();
         public List<Card> hand;
-        public List<Card> cards_avail;
+        public List<Card> cards_avail = new List<Card>();
         public Stack<Card> pile; 
         public int points;
         public string name; 

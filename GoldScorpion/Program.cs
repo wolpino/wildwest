@@ -6,7 +6,9 @@ namespace GoldScorpion
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Player player = new Player("john");
+            System.Console.WriteLine(player.cards_avail);
+            // Game game = new Game(2);
         }
     }
 }
