@@ -1,0 +1,13 @@
+/Users/ariellawolpin/Desktop/Dojo/netCore/wildwest/tests/bin/Debug/netcoreapp1.1/tests.deps.json
+/Users/ariellawolpin/Desktop/Dojo/netCore/wildwest/tests/bin/Debug/netcoreapp1.1/tests.runtimeconfig.json
+/Users/ariellawolpin/Desktop/Dojo/netCore/wildwest/tests/bin/Debug/netcoreapp1.1/tests.runtimeconfig.dev.json
+/Users/ariellawolpin/Desktop/Dojo/netCore/wildwest/tests/obj/Debug/netcoreapp1.1/tests.AssemblyInfo.cs
+/Users/ariellawolpin/Desktop/Dojo/netCore/wildwest/tests/bin/Debug/netcoreapp1.1/xunit.runner.visualstudio.dotnetcore.testadapter.dll
+/Users/ariellawolpin/Desktop/Dojo/netCore/wildwest/tests/bin/Debug/netcoreapp1.1/xunit.runner.utility.netstandard15.dll
+/Users/ariellawolpin/Desktop/Dojo/netCore/wildwest/tests/bin/Debug/netcoreapp1.1/xunit.runner.reporters.netstandard15.dll
+/Users/ariellawolpin/Desktop/Dojo/netCore/wildwest/tests/bin/Debug/netcoreapp1.1/tests.dll
+/Users/ariellawolpin/Desktop/Dojo/netCore/wildwest/tests/bin/Debug/netcoreapp1.1/tests.pdb
+/Users/ariellawolpin/Desktop/Dojo/netCore/wildwest/tests/bin/Debug/netcoreapp1.1/GoldScorpion.dll
+/Users/ariellawolpin/Desktop/Dojo/netCore/wildwest/tests/bin/Debug/netcoreapp1.1/GoldScorpion.pdb
+/Users/ariellawolpin/Desktop/Dojo/netCore/wildwest/tests/obj/Debug/netcoreapp1.1/tests.dll
+/Users/ariellawolpin/Desktop/Dojo/netCore/wildwest/tests/obj/Debug/netcoreapp1.1/tests.pdb

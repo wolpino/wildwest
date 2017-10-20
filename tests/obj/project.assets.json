@@ -2919,6 +2919,19 @@
         "build": {
           "build/netcoreapp1.0/xunit.runner.visualstudio.props": {}
         }
+      },
+      "GoldScorpion/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v1.1",
+        "dependencies": {
+          "Microsoft.NETCore.App": "1.1.2"
+        },
+        "compile": {
+          "bin/placeholder/netcoreapp1.1/GoldScorpion.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/netcoreapp1.1/GoldScorpion.dll": {}
+        }
       }
     }
   },
@@ -8509,10 +8522,16 @@
         "xunit.runner.visualstudio.2.2.0.nupkg.sha512",
         "xunit.runner.visualstudio.nuspec"
       ]
+    },
+    "GoldScorpion/1.0.0": {
+      "type": "project",
+      "path": "../GoldScorpion/GoldScorpion.csproj",
+      "msbuildProject": "../GoldScorpion/GoldScorpion.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v1.1": [
+      "GoldScorpion >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 15.0.0",
       "Microsoft.NETCore.App >= 1.1.2",
       "xunit >= 2.2.0",
@@ -8538,7 +8557,11 @@
       },
       "frameworks": {
         "netcoreapp1.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/ariellawolpin/Desktop/Dojo/netCore/wildwest/GoldScorpion/GoldScorpion.csproj": {
+              "projectPath": "/Users/ariellawolpin/Desktop/Dojo/netCore/wildwest/GoldScorpion/GoldScorpion.csproj"
+            }
+          }
         }
       }
     },

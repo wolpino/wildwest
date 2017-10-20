@@ -1,0 +1,2 @@
+System.Console.WriteLine("Howdy Partner welcome to the Wild Wild West! We're gonna go huntin' for some gold nuggets today, but you'll need to watchout for Scorpions along the way");
+System.Console.WriteLine(" ");
