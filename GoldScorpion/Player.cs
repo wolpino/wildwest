@@ -51,7 +51,7 @@ namespace GoldScorpion
         {
             for(int i=0;i<num;i++)
             {
-                if(i<pile.Count)
+                while(pile.Count>0)
                 {
                     string currCard = pile.Pop().cardName;
                     if(currCard == "scorpion")
@@ -62,10 +62,11 @@ namespace GoldScorpion
                     {
                         return 0;
                     }
+                    i++;
                 }
-                else 
+                if(i>=pile.Count)
                 {
-                    return num-i;
+                    return (num-i);
                 }
             }
             return 0;
@@ -77,5 +78,30 @@ namespace GoldScorpion
         }
 
 
+    }
+
+    class CompOpponent:Player
+    {
+        public CompOpponent(string name):base(name)
+        {}
+
+        public int makeMove()
+        {
+            if(hand.Count>0)
+            {
+                if(rand.Next(2)==0)
+                {
+                    playCard();
+                    return 0;
+                }
+            }
+            return 1;
+        }
+
+        public void playCard()
+        {
+            int num = rand.Next(hand.Count);
+            playCard(num);
+        }
     }
 }

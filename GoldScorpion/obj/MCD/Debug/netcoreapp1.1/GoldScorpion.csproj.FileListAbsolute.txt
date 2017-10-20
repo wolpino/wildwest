@@ -1,0 +1,8 @@
+C:\Users\Natalia\Documents\Coding\Projects\scorpions\GoldScorpion\bin\MCD\Debug\netcoreapp1.1\GoldScorpion.deps.json
+C:\Users\Natalia\Documents\Coding\Projects\scorpions\GoldScorpion\bin\MCD\Debug\netcoreapp1.1\GoldScorpion.runtimeconfig.json
+C:\Users\Natalia\Documents\Coding\Projects\scorpions\GoldScorpion\bin\MCD\Debug\netcoreapp1.1\GoldScorpion.runtimeconfig.dev.json
+C:\Users\Natalia\Documents\Coding\Projects\scorpions\GoldScorpion\bin\MCD\Debug\netcoreapp1.1\GoldScorpion.dll
+C:\Users\Natalia\Documents\Coding\Projects\scorpions\GoldScorpion\bin\MCD\Debug\netcoreapp1.1\GoldScorpion.pdb
+C:\Users\Natalia\Documents\Coding\Projects\scorpions\GoldScorpion\obj\MCD\Debug\netcoreapp1.1\GoldScorpion.AssemblyInfo.cs
+C:\Users\Natalia\Documents\Coding\Projects\scorpions\GoldScorpion\obj\MCD\Debug\netcoreapp1.1\GoldScorpion.dll
+C:\Users\Natalia\Documents\Coding\Projects\scorpions\GoldScorpion\obj\MCD\Debug\netcoreapp1.1\GoldScorpion.pdb
