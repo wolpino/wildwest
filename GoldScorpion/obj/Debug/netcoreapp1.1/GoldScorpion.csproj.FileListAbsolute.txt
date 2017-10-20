@@ -6,3 +6,11 @@
 /Users/ariellawolpin/Desktop/Dojo/netCore/wildwest/GoldScorpion/obj/Debug/netcoreapp1.1/GoldScorpion.AssemblyInfo.cs
 /Users/ariellawolpin/Desktop/Dojo/netCore/wildwest/GoldScorpion/obj/Debug/netcoreapp1.1/GoldScorpion.dll
 /Users/ariellawolpin/Desktop/Dojo/netCore/wildwest/GoldScorpion/obj/Debug/netcoreapp1.1/GoldScorpion.pdb
+/Users/ariellawolpin/Desktop/Dojo/wildwest/GoldScorpion/bin/Debug/netcoreapp1.1/GoldScorpion.deps.json
+/Users/ariellawolpin/Desktop/Dojo/wildwest/GoldScorpion/bin/Debug/netcoreapp1.1/GoldScorpion.runtimeconfig.json
+/Users/ariellawolpin/Desktop/Dojo/wildwest/GoldScorpion/bin/Debug/netcoreapp1.1/GoldScorpion.runtimeconfig.dev.json
+/Users/ariellawolpin/Desktop/Dojo/wildwest/GoldScorpion/bin/Debug/netcoreapp1.1/GoldScorpion.dll
+/Users/ariellawolpin/Desktop/Dojo/wildwest/GoldScorpion/bin/Debug/netcoreapp1.1/GoldScorpion.pdb
+/Users/ariellawolpin/Desktop/Dojo/wildwest/GoldScorpion/obj/Debug/netcoreapp1.1/GoldScorpion.AssemblyInfo.cs
+/Users/ariellawolpin/Desktop/Dojo/wildwest/GoldScorpion/obj/Debug/netcoreapp1.1/GoldScorpion.dll
+/Users/ariellawolpin/Desktop/Dojo/wildwest/GoldScorpion/obj/Debug/netcoreapp1.1/GoldScorpion.pdb
